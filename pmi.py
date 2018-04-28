@@ -25,7 +25,7 @@ for jo_bim in thesaurus.JoBim_dict:
 	jo = spliced.split('\t')[0]
 	bim = spliced.split('\t')[1]
 	log_score = log(prob_jo_bim[jo_bim]/(prob_jo[jo] * prob_bim[bim]))
-	if log_score >= 5:
+	if log_score >= 5.5:
 		sig_score[jo_bim] = log_score
 	# print(prob_jo[jo], prob_bim[bim], prob_jo_bim[jo_bim])
 
