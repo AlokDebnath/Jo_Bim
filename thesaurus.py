@@ -25,12 +25,10 @@ for line in lines:
 		Bim_dict[jobim[1].split('\n')[0]] += 1
 	else:
 		Bim_dict[jobim[1].split('\n')[0]] = 1
-
 # print(Bim_dict["-pobj(with#IN)"])
 sorted_Jo_dict = sorted(Jo_dict.items(), key=operator.itemgetter(1), reverse=True)
 sorted_Bim_dict = sorted(Bim_dict.items(), key=operator.itemgetter(1), reverse=True)
 sorted_JoBim_dict = sorted(JoBim_dict.items(), key=operator.itemgetter(1), reverse=True)
-
 Jo_count =len(sorted_Jo_dict)
 Bim_count =len(sorted_Bim_dict)
 JoBim_count =len(sorted_JoBim_dict)

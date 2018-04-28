@@ -23,4 +23,10 @@ for jo_bim in thesaurus.JoBim_dict:
 	spliced = jo_bim.split('\n')[0]
 	jo = spliced.split('\t')[0]
 	bim = spliced.split('\t')[1]
-	sig_score[jo_bim] = log ((prob_jo_bim[jo_bim]) / (prob_jo[jo]) * prob_bim[bim])
+	log_score = log(prob_jo_bim[jo_bim]/(prob_jo[jo] * prob_bim[bim]))
+	if log_score >= 5:
+		sig_score[jo_bim] = log_score
+	# print(prob_jo[jo], prob_bim[bim], prob_jo_bim[jo_bim])
+
+sorted_sig_score = sorted(sig_score.items(), key= lambda x: x[1], reverse=False)
+print(sorted_sig_score)
