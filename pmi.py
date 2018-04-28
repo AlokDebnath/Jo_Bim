@@ -19,6 +19,7 @@ for bim, count in thesaurus.Bim_dict.items():
 
 for jo_bim, count in thesaurus.JoBim_dict.items():
 	prob_jo_bim[jo_bim] = count/jo_bim_count
+
 for jo_bim in thesaurus.JoBim_dict:
 	spliced = jo_bim.split('\n')[0]
 	jo = spliced.split('\t')[0]
@@ -29,4 +30,3 @@ for jo_bim in thesaurus.JoBim_dict:
 	# print(prob_jo[jo], prob_bim[bim], prob_jo_bim[jo_bim])
 
 sorted_sig_score = sorted(sig_score.items(), key= lambda x: x[1], reverse=False)
-print(sorted_sig_score)
