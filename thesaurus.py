@@ -4,12 +4,13 @@ lines = file1.readlines()
 Jo_dict = {}
 Bim_dict = {}
 JoBim_dict = {}
-
+total_count = 0
 for line in lines:
 
 	jobim = line.split('\t')
 	if 'punct' in jobim[1]:
 		continue
+	total_count += 1
 	if line in JoBim_dict:
 		JoBim_dict[line] += 1
 	else:
@@ -30,13 +31,10 @@ for line in lines:
 		Bim_dict[y] = 1
 
 
-
 sorted_Jo_dict = sorted(Jo_dict.items(), key=operator.itemgetter(1), reverse=True)
 sorted_Bim_dict = sorted(Bim_dict.items(), key=operator.itemgetter(1), reverse=True)
-sorted_JoBim_dict = sorted(JoBim_dict.items(), key=operator.itemgetter(1), reverse=False)
-# print(sorted_Jo_dict)
-# print(sorted_Bim_dict)
-print(sorted_JoBim_dict)
-# print(len(sorted_Jo_dict))
-# print(len(sorted_Bim_dict))
-print(len(sorted_JoBim_dict))
+sorted_JoBim_dict = sorted(JoBim_dict.items(), key=operator.itemgetter(1), reverse=True)
+
+Jo_count =len(sorted_Jo_dict)
+Bim_count =len(sorted_Bim_dict)
+JoBim_count =len(sorted_JoBim_dict)
