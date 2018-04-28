@@ -1,4 +1,4 @@
-import thesaurus
+import jobimcount
 import pmi
 
 class Vertex:
@@ -68,35 +68,22 @@ for jo_bim, sigval in pmi.sig_score.items():
     graph.add_edge(jo,bim,sigval)
     graph.add_edge(bim,jo,sigval)
 
-aggregate = {}
+# aggregate = {}
 
-for bim in thesaurus.Bim_dict:
-    similar_to = []
-    if bim in graph.vert_dict:
-        jos_neighbor = graph.vert_dict[bim].get_connections()
-        for neighbor in jos_neighbor:
-            # print(neighbors.get_id())
-            similar_to.append(neighbor.get_id())
-    if(len(similar_to) >= 5):
-        aggregate[bim] = similar_to
+# for bim in jobimcount.Bim_dict:
+#     similar_to = []
+#     if bim in graph.vert_dict:
+#         jos_neighbor = graph.vert_dict[bim].get_connections()
+#         for neighbor in jos_neighbor:
+#             # print(neighbors.get_id())
+#             similar_to.append(neighbor.get_id())
+#     if(len(similar_to) >= 4):
+#         aggregate[bim] = similar_to
 
 jos_agg = {}
 
-# for jo1 in thesaurus.Jo_dict:
-#     jos_agg[jo1] = {}
-#     if jo1 in graph.vert_dict:
-#         bim_neighbors = graph.vert_dict[jo1].get_connections()
-#         for bim_ver in bim_neighbors:
-#             bim = bim_ver.get_id()
-#             jo2_neighbors = graph.vert_dict[bim].get_connections()
-#             for jo2_ver in jo2_neighbors:
-#                 jo2 = jo2_ver.get_id()
-#                 if jo2 in jos_agg[jo1]:
-#                     jos_agg[jo1][jo2] += 1
-#                 else:
-#                     jos_agg[jo1][jo2] = 1
 
-for jo1 in thesaurus.Jo_dict:
+for jo1 in jobimcount.Jo_dict:
     jos_agg[jo1] = {}
     if jo1 in graph.vert_dict:
         bim_neighbors = graph.vert_dict[jo1].get_connections()
@@ -110,4 +97,4 @@ for jo1 in thesaurus.Jo_dict:
                 else:
                     jos_agg[jo1][jo2] = 1
 
-print(jos_agg)
+# print(jos_agg)
