@@ -21,12 +21,13 @@ for jo_bim, count in thesaurus.JoBim_dict.items():
 	prob_jo_bim[jo_bim] = count/jo_bim_count
 
 for jo_bim in thesaurus.JoBim_dict:
-	spliced = jo_bim.split('\n')[0]
+	spliced = jo_bim
 	jo = spliced.split('\t')[0]
 	bim = spliced.split('\t')[1]
 	log_score = log(prob_jo_bim[jo_bim]/(prob_jo[jo] * prob_bim[bim]))
-	if log_score >= 5.5:
+	if log_score >= 4.0:
 		sig_score[jo_bim] = log_score
 	# print(prob_jo[jo], prob_bim[bim], prob_jo_bim[jo_bim])
 
+print(len(sig_score))
 sorted_sig_score = sorted(sig_score.items(), key= lambda x: x[1], reverse=False)
