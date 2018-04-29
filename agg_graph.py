@@ -5,6 +5,7 @@ class Vertex:
     def __init__(self, node):
         self.id = node
         self.adjacent = {}
+        self.clust = 0
 
     def __str__(self):
         return str(self.id) + ' adjacent: ' + str([x.id for x in self.adjacent])
