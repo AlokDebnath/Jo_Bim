@@ -6,7 +6,7 @@ Bim_dict = {}
 JoBim_dict = {}
 total_count = 0
 for line1 in lines:
-	line = line1.strip()
+	line = line1.strip().lower()
 	jobim = line.strip().split('\t')
 	if 'punct' in jobim[1]:
 		continue

@@ -81,6 +81,7 @@ for jo_bim, sigval in pmi.sig_score.items():
 #         aggregate[bim] = similar_to
 
 jos_agg = {}
+jos_spliced = {}
 
 
 for jo1 in jobimcount.Jo_dict:
@@ -97,4 +98,6 @@ for jo1 in jobimcount.Jo_dict:
                 else:
                     jos_agg[jo1][jo2] = 1
 
+for jo in jos_agg:
+	jos_spliced[jo.split('#')[0]] = jos_agg[jo]
 # print(jos_agg)
